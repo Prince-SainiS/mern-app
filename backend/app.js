@@ -43,7 +43,7 @@ const AppError = require("./utils/AppError");
 // ─────────────────────────────────────
 app.use(helmet());  //set all 11 headers automatically //1. secure headers
 app.use(cors(corsOptions))                             // 2. CORS
-app.use(globalLimiter);                                 // 3. ratelimiting
+// app.use(globalLimiter);                                 // 3. ratelimiting
 
 // ─────────────────────────────────────
 // BODY PARSER
@@ -57,7 +57,7 @@ app.use(cookieParser());
 // DATA SANITIZATION
 // ─────────────────────────────────────
 app.use(mongoSanitize());           // 4.NoSQL injection
-app.use(xss());                     // 5. XSS attacks
+// app.use(xss());                     // 5. XSS attacks
 // must be after express.json() ✅
 // because it sanitizes req.body
 // which needs to be parsed first 

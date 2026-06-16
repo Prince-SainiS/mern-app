@@ -28,7 +28,9 @@ router.post("/login", authLimiter, validate(loginValidator), login);
 router.post(
   "/forgot-password",
   authLimiter,
+
   validate(forgotPasswordValidator),
+
   forgotPassword,
 );
 
@@ -44,7 +46,7 @@ router.patch("/update-photo", protect, upload.single("photo"), updatePhoto);
 
 router.get("/", protect, restrictTo("admin"), getAllUsers);
 
-router.get("/me", protect, restrictTo("user"), (req, res) => {
+router.get("/me", protect, (req, res) => {
   res.status(200).json({
     status: "success",
     data: { user: req.user },

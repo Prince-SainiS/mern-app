@@ -68,7 +68,7 @@ const loginValidator = [
 const forgotPasswordValidator = [
   body("email")
     .trim()
-    .isEmpty()
+    .notEmpty()
     .withMessage("Email is required")
     .bail()
     .isEmail()
@@ -88,7 +88,7 @@ const resetPasswordValidator = [
     .withMessage("Password must contain uppercase, lowercase and number"),
 
   body("confirmPassword")
-    .isEmpty()
+    .notEmpty()
     .withMessage("Please confirm your password")
     .bail()
     .custom((value, { req }) => {

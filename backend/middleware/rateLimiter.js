@@ -6,9 +6,9 @@ const noOpMiddleware = (req, res, next) => next();
 const globalLimiter =process.env.NODE_ENV === "test"
     ? noOpMiddleware :
     rateLimit({
-    windowMs : 15 * 60 * 1000, //time window , 15 minutes in milliseconds
+    windowMs : 100 * 60 * 1000, //time window , 15 minutes in milliseconds
 
-    max : 100,
+    max : 1000,
     // max request per windowMs per IP
     // 100 request per 15 mins
 
@@ -32,9 +32,9 @@ const globalLimiter =process.env.NODE_ENV === "test"
 const authLimiter = process.env.NODE_ENV === "test"
     ? noOpMiddleware :
     rateLimit({
-    windowMs : 15 * 60 *1000,
+    windowMs : 100 * 60 *1000,
 
-    max : 10,
+    max : 1000,
 
     skip : (req) => {process.env.NODE_ENV === "test"},
     message : {
