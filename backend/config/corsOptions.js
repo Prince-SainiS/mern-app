@@ -2,6 +2,7 @@ const corsOptions = {
     // allowed origins
     origin: (origin, callback) => {
         const allowedOrgins = [
+            "https://mern-app-jet-ten.vercel.app",
             "http://localhost:3000",     // React dev server
             "http://localhost:5173",     // Vite dev server
             process.env.FRONTEND_URL    // production frontend
