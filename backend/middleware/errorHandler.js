@@ -7,6 +7,7 @@ const errorHandler = (err, req ,res , next) => {
     // log the error
     logger.error(`${err.statusCode} - ${err.message} -${req.originalUrl} - ${req.method} - ${req.ip}`);
 
+     console.log("FULL STACK:", err.stack);
     if(process.env.NODE_ENV === "development") {
         logger.error(err.stack);
     }

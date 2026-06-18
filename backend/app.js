@@ -82,7 +82,7 @@ app.get("/" , (req, res) => {
 app.use("/api" , routes);
 
 app.all("*" , (req, res , next) => {
-    next(new AppError(`Route ${req,url} not found` , 400))
+    next(new AppError(`Route ${req.url} not found` , 400))
 });
 
 // ─────────────────────────────────────
